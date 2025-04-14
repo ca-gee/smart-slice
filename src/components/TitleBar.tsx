@@ -52,7 +52,7 @@ export function TitleBar({
 
       {/* 左侧标题 */}
       <div className="flex items-center">
-        <h1 className="text-lg font-bold">JSONL 文件查看器</h1>
+        {/* <h1 className="text-lg font-bold">JSONL 文件查看器</h1> */}
       </div>
 
       {/* 右侧按钮组 */}
