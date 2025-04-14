@@ -1,4 +1,4 @@
-# Smart Slice
+# <div align="center">Smart Slice</div>
 
 <div align="center">
   <img src="public/icon.png" alt="Smart Slice Logo" width="120" />
