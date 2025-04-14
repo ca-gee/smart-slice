@@ -1,0 +1,27 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "dialog:default",
+    "opener:default",
+    "core:window:default",
+    "core:window:allow-start-dragging",
+    "core:window:allow-minimize",
+    "core:window:allow-maximize",
+    "core:window:allow-close",
+    "core:window:allow-is-resizable",
+    "core:window:allow-is-decorated",
+    "core:window:allow-is-fullscreen",
+    "core:window:allow-toggle-maximize",
+    "core:window:allow-destroy",
+    "core:window:allow-hide",
+    "core:event:default",
+    "core:window:allow-set-position",
+    "core:window:allow-show",
+    "core:window:allow-create"
+    
+  ]
+}
