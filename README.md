@@ -29,7 +29,7 @@
 </p>
 
 <div align="center">
-  <strong>🚀 高性能 JSONL 文件查看器</strong>
+  <strong>🚀 高性能 JSONL 文件解析器</strong>
 </div>
 
 一个基于 Tauri + React 的 JSONL 文件查看器，提供表格、网格和图表三种视图模式。凭借 Rust 的高性能和 Tauri 的轻量级特性，Smart Slice 能够：
