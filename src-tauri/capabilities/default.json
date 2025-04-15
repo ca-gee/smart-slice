@@ -2,10 +2,11 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Capability for the main window",
-  "windows": ["main"],
+  "windows": [
+    "main"
+  ],
   "permissions": [
     "core:default",
-    "dialog:default",
     "opener:default",
     "core:window:default",
     "core:window:allow-start-dragging",
@@ -21,7 +22,12 @@
     "core:event:default",
     "core:window:allow-set-position",
     "core:window:allow-show",
-    "core:window:allow-create"
-    
+    "core:window:allow-create",
+    "dialog:allow-ask",
+    "dialog:allow-confirm",
+    "dialog:allow-message",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "dialog:default"
   ]
 }

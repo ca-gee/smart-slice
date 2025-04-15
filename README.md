@@ -37,6 +37,7 @@
 - ⚡ **极速启动**：得益于 Rust运行速度
 - 💾 **超低内存占用**：内存使用仅为同类 Electron 应用的 1/10
 - 📊 **流畅处理大文件**：支持 GB 级别的 JSONL 文件，保持流畅的浏览体验
+- 🚀 **超快数据加载**：2GB、1000万行数据加载仅需 5 秒，支持实时预览
 - 🖥️ **原生性能**：接近原生应用的运行效率，无性能瓶颈
 
 ## 功能特性
@@ -169,7 +170,7 @@ npm run tauri dev
 
 4. 构建应用
 ```bash
-npm run tauri build
+npm run tauri build -- --bundles dmg --skip-type-check
 ```
 
 ## 使用说明

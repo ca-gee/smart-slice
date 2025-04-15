@@ -20,7 +20,8 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "capabilities": ["default"]
     }
   },
   "bundle": {
@@ -41,6 +42,7 @@
       "minimize": true,
       "maximize": true,
       "close": true
-    }
+    },
+    "dialog": null
   }
 }
