@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from './ui/button';
-import { Table, LayoutGrid, BarChart2, Settings, History, HelpCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Table, LayoutGrid, BarChart2, Settings, History, HelpCircle } from 'lucide-react';
 
 interface SidebarProps {
   activeView: 'table' | 'grid' | 'chart';
@@ -8,6 +8,7 @@ interface SidebarProps {
   onSettingsClick: () => void;
   onHistoryClick: () => void;
   onHelpClick: () => void;
+  isCollapsed: boolean;
 }
 
 export function Sidebar({
@@ -16,23 +17,11 @@ export function Sidebar({
   onSettingsClick,
   onHistoryClick,
   onHelpClick,
+  isCollapsed,
 }: SidebarProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
   return (
     <div className={`h-full flex flex-col bg-background/50 border-r transition-all duration-300 ${isCollapsed ? 'w-12' : 'w-48'}`}>
       <div className="flex-none p-2">
-        <div className="flex items-center justify-between mb-4">
-          {!isCollapsed && <h2 className="text-lg font-semibold text-foreground">视图</h2>}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className={`${isCollapsed ? 'mx-auto' : 'ml-auto'} hover:bg-muted/50`}
-          >
-            {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-          </Button>
-        </div>
         <div className="space-y-2">
           <Button
             variant={activeView === 'table' ? 'default' : 'ghost'}

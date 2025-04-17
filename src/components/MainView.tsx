@@ -49,6 +49,7 @@ export function MainView() {
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // 监听文件加载进度事件
   useEffect(() => {
@@ -306,18 +307,23 @@ export function MainView() {
         onToggleDarkMode={toggleDarkMode}
         onToggleDebugMode={toggleDebugMode}
         onGenerateTestFile={handleGenerateTestFile}
+        isSidebarCollapsed={isSidebarCollapsed}
+        onToggleSidebar={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
       />
 
       {/* 主内容区域 */}
-      <div className="flex-1 flex overflow-hidden mt-12">
+      <div className="flex-1 flex overflow-hidden">
         {/* 侧边栏 */}
-        <Sidebar
-          activeView={activeView}
-          onViewChange={setActiveView}
-          onSettingsClick={() => setShowSettings(true)}
-          onHistoryClick={() => setShowHistory(true)}
-          onHelpClick={() => setShowHelp(true)}
-        />
+        <div className="mt-16">
+          <Sidebar
+            activeView={activeView}
+            onViewChange={setActiveView}
+            onSettingsClick={() => setShowSettings(true)}
+            onHistoryClick={() => setShowHistory(true)}
+            onHelpClick={() => setShowHelp(true)}
+            isCollapsed={isSidebarCollapsed}
+          />
+        </div>
 
         {/* 内容区域 */}
         <div className="flex-1 flex flex-col overflow-hidden">
@@ -343,7 +349,7 @@ export function MainView() {
           )}
 
           {!filePath && !isDebugMode ? (
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center mt-16">
               <div 
                 onClick={handleOpenFile}
                 className="group relative w-full max-w-2xl p-8 border-2 border-dashed rounded-lg cursor-pointer hover:border-primary transition-colors"
@@ -356,7 +362,7 @@ export function MainView() {
               </div>
             </div>
           ) : (
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 overflow-hidden mt-16">
               <JsonlViewer
                 data={jsonlData}
                 activeView={activeView}

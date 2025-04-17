@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './ui/button';
-import { Moon, Sun, Bug, FileOutput } from 'lucide-react';
+import { Moon, Sun, Bug, FileOutput, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Window } from '@tauri-apps/api/window';
 
 interface TitleBarProps {
@@ -9,6 +9,8 @@ interface TitleBarProps {
   onToggleDarkMode: () => void;
   onToggleDebugMode: () => void;
   onGenerateTestFile: () => void;
+  isSidebarCollapsed: boolean;
+  onToggleSidebar: () => void;
 }
 
 export function TitleBar({
@@ -17,6 +19,8 @@ export function TitleBar({
   onToggleDarkMode,
   onToggleDebugMode,
   onGenerateTestFile,
+  isSidebarCollapsed,
+  onToggleSidebar,
 }: TitleBarProps) {
   const window = Window.getCurrent();
   const isMacOS = navigator.platform.includes('Mac');
@@ -91,9 +95,17 @@ export function TitleBar({
           data-tauri-drag-region 
           className="flex items-center justify-between h-12 px-4 bg-background"
         >
-          {/* 左侧标题 */}
-          <div className="flex items-center">
-            {/* <h1 className="text-lg font-bold">JSONL 文件查看器</h1> */}
+          {/* 左侧标题和折叠按钮 */}
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onToggleSidebar}
+              className="hover:bg-muted/50"
+            >
+              {isSidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+            </Button>
+            {!isSidebarCollapsed && <h2 className="text-lg font-semibold text-foreground">视图</h2>}
           </div>
 
           {/* 右侧业务按钮组 */}
