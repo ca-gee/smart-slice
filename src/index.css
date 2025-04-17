@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 隐藏全局滚动条 */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 隐藏所有滚动条 */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* 网格视图样式 */
+.grid-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container .grid-header {
+  flex: none;
+}
+
+.grid-container .grid-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 美化滚动条 */
+.grid-container .grid-content::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+  height: 6px;
+}
+
+.grid-container .grid-content::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.grid-container .grid-content::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.grid-container .grid-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+.grid-container .grid-content::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* 暗色模式下的滚动条样式 */
+.dark .grid-container .grid-content::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .grid-container .grid-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 85, 99, 0.7);
+}
+
+/* 确保内容区域不会滚动 */
+.overflow-hidden {
+  overflow: hidden !important;
+} 
