@@ -57,7 +57,7 @@ export function TitleBar({
 
           {/* Windows/Linux 窗口控制按钮 */}
           {!isMacOS && (
-            <div className="flex items-center space-x-2 -mr-4">
+            <div className="flex items-center space-x-2 ml-auto">
               <Button
                 variant="ghost"
                 size="icon"
@@ -84,9 +84,6 @@ export function TitleBar({
               </Button>
             </div>
           )}
-
-          {/* 右侧占位，保持布局平衡 */}
-          <div className="w-12" />
         </div>
 
         {/* 业务按钮区域 */}
