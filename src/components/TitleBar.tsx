@@ -57,7 +57,7 @@ export function TitleBar({
 
           {/* Windows/Linux 窗口控制按钮 */}
           {!isMacOS && (
-            <div className="flex items-center space-x-2 ml-auto">
+            <div className="flex items-center space-x-2 -mr-4">
               <Button
                 variant="ghost"
                 size="icon"
